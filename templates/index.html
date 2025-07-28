@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions - Diabetes Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            max-width: 650px;
+            margin: auto;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #333;
+        }
+        ul {
+            text-align: left;
+            font-size: 14px;
+            color: #555;
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        li img {
+            margin-right: 15px;
+            width: 30px;
+            height: 30px;
+        }
+        .back-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .back-btn:hover {
+            background-color: #218838;
+        }
+        .highlight {
+            color: #d9534f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/download (3).jpg') }}" alt="Logo" style="height: 50px;">
+        <h1>Diabetes Prediction App</h1>
+    </header>
+
+    {% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+
+        
+        <h1>Instructions</h1>
+        <ul>
+            <li><img src="{{ url_for('static', filename='images/pregnancy-icon.png') }}" alt="Pregnancy Icon">
+                <strong>Pregnancies:</strong> Enter the number of times you have been pregnant (0 if male).</li>
+            
+            <li><img src="{{ url_for('static', filename='images/glu.jpg') }}" alt="Glucose Icon">
+                <strong>Glucose Level:</strong> Enter fasting glucose level (mg/dL). 
+                <span class="highlight">Normal: 70-99 mg/dL, Prediabetes: 100-125 mg/dL, Diabetes: 126+ mg/dL.</span>
+            </li>
+
+            <li><img src="{{ url_for('static', filename='images/blood-pressure-icon.png') }}" alt="Blood Pressure Icon">
+                <strong>Blood Pressure:</strong> Enter your diastolic blood pressure (mm Hg).</li>
+
+            <li><img src="{{ url_for('static', filename='images/skin-thickness-icon.png') }}" alt="Skin Thickness Icon">
+                <strong>Skin Thickness:</strong> Enter skin fold thickness (mm).</li>
+
+            <li><img src="{{ url_for('static', filename='images/insulin-icon.png') }}" alt="Insulin Icon">
+                <strong>Insulin Level:</strong> Enter insulin concentration (mu U/ml).
+                <br> <span class="highlight">Healthy: 2-20 mu U/ml, Prediabetes: 21-35 mu U/ml, Diabetes: 36+ mu U/ml.</span>
+            </li>
+
+            <li><img src="{{ url_for('static', filename='images/bmi-icon.png') }}" alt="BMI Icon">
+                <strong>BMI:</strong> Enter your Body Mass Index.</li>
+
+            <li><img src="{{ url_for('static', filename='images/dpf-icon.png') }}" alt="Diabetes Pedigree Function Icon">
+                <strong>Diabetes Pedigree Function:</strong> A value indicating genetic influence.</li>
+
+            <li><img src="{{ url_for('static', filename='images/age-icon.png') }}" alt="Age Icon">
+                <strong>Age:</strong> Enter your age in years.</li>
+
+            <li><img src="{{ url_for('static', filename='images/exercise-icon.png') }}" alt="Exercise Icon">
+                <strong>Exercise Level:</strong> Enter <span class="highlight"> 1  </span> if you exercise regularly, otherwise <span class="highlight">0</span>.</li>
+
+            <li><img src="{{ url_for('static', filename='images/family-history-icon.png') }}" alt="Family History Icon">
+                <strong>Family History:</strong> Enter <span class="highlight">1</span> if there is a family history of diabetes, otherwise <span class="highlight">0</span>.</li>
+
+            <li><img src="{{ url_for('static', filename='images/diet-icon.png') }}" alt="Diet Icon">
+                <strong>Diet Type:</strong> Enter <span class="highlight">1</span> for a balanced diet, otherwise <span class="highlight">0</span>.</li>
+
+            <li><img src="{{ url_for('static', filename='images/glucose-icon.png') }}" alt="UL Code Icon">
+                <strong>UL Code:</strong> A unique identifier for tracking patient history in the system.</li>
+        </ul>
+
+        
+
+        <a href="/predict" class="back-btn">Go to Prediction Form</a>
+    </div>
+
+    
+{% endblock %}
+</body>
+</html>

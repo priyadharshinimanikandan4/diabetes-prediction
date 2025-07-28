@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Past Test Results</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      text-align: center; 
+      padding: 20px; 
+      background-color: #f4f4f4;
+    }
+    table { 
+      width: 90%; 
+      margin: auto; 
+      border-collapse: collapse; 
+    }
+    th, td { 
+      border: 1px solid #ddd; 
+      padding: 10px; 
+      text-align: center; 
+    }
+    th { 
+      background-color: #007bff; 
+      color: white; 
+    }
+    a { 
+      color: #007bff; 
+      text-decoration: none; 
+    }
+    a:hover { 
+      text-decoration: underline; 
+    }
+  </style>
+</head>
+<body>
+  <h1>Past Test Results</h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Age</th>
+      <th>Glucose</th>
+      <th>Prediction</th>
+      <th>Download Report</th>
+    </tr>
+    {% for record in results %}
+    <tr>
+      <td>{{ record.id }}</td>
+      <td>{{ record.age }}</td>
+      <td>{{ record.glucose }}</td>
+      <td>{{ record.prediction }}</td>
+      <td><a href="/download/{{ record.id }}">Download PDF</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+  <br>
+  <a href="/">Back to Home</a>
+</body>
+</html>
